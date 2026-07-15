@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What The Hook Gonna Be? | Songwriters Session Tour</title>
+<style>
+  :root{
+    --black:#141210;
+    --cream:#f2efe9;
+    --gold:#c9a24b;
+    --gold-light:#e4c877;
+    --gray:#5a564f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    background:var(--cream);
+    color:var(--black);
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Arial Black',Arial,sans-serif;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:var(--black);
+    color:var(--cream);
+    padding:16px 0;
+  }
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  nav .brand{font-weight:900;font-size:15px;letter-spacing:1px;text-transform:uppercase;}
+  nav .brand span{color:var(--gold);}
+  nav ul{list-style:none;display:flex;gap:22px;flex-wrap:wrap;}
+  nav a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;opacity:0.85;}
+  nav a:hover{opacity:1;color:var(--gold-light);}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg,var(--black) 0%, #221f1a 100%);
+    color:var(--cream);
+    text-align:center;
+    padding:100px 24px 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-dates{color:var(--gold-light);font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:22px;}
+  .hero-logo{max-width:420px;width:80%;margin:0 auto 40px;display:block;}
+  .btn-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:15px 32px;border-radius:2px;
+    font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:13px;
+    text-decoration:none;transition:transform .15s ease, opacity .15s ease;
+    border:2px solid transparent;
+  }
+  .btn-primary{background:var(--gold);color:var(--black);}
+  .btn-outline{border-color:var(--gold);color:var(--cream);}
+  .btn:hover{transform:translateY(-2px);}
+
+  /* SECTION HEADERS */
+  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:2px;font-size:12px;text-transform:uppercase;margin-bottom:10px;}
+  .sec-title{font-size:clamp(26px,4vw,38px);margin-bottom:20px;}
+  .lede{font-size:18px;color:var(--gray);max-width:680px;margin-bottom:10px;}
+
+  /* MISSION */
+  .mission-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:start;margin-top:40px;}
+  .free-badge{
+    display:inline-block;background:var(--black);color:var(--gold-light);
+    padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    margin-top:18px;
+  }
+  .list-card{background:#fff;border:1px solid #e4ded0;padding:24px;}
+  .list-card h3{font-size:14px;letter-spacing:1px;margin-bottom:16px;color:var(--black);}
+  .list-card ul{list-style:none;}
+  .list-card li{padding:10px 0;border-top:1px solid #eee;font-size:15px;}
+  .list-card li:first-child{border-top:none;}
+  .list-card li::before{content:"— ";color:var(--gold);font-weight:700;}
+
+  /* POWER BEHIND */
+  .power{background:var(--black);color:var(--cream);}
+  .power .sec-title{color:var(--cream);}
+  .power-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px;}
+  .power-grid.single{grid-template-columns:1fr;max-width:640px;margin-left:auto;margin-right:auto;}
+  .power-card{background:#1e1b16;padding:28px;border:1px solid #333;}
+  .power-card h3{color:var(--gold-light);font-size:18px;margin-bottom:12px;letter-spacing:1px;}
+  .power-card p{color:#c9c3b4;font-size:14.5px;margin-bottom:18px;}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .stat-row div{font-size:12px;color:#9a9384;text-transform:uppercase;letter-spacing:0.5px;}
+  .stat-row strong{display:block;color:var(--gold);font-size:20px;font-family:'Arial Black',sans-serif;}
+  .partner-line{text-align:center;margin-top:24px;font-size:13px;color:#9a9384;letter-spacing:0.5px;}
+  .partner-line strong{color:#c9c3b4;}
+  .partner-line a{color:var(--gold-light);text-decoration:underline;}
+
+  /* HITMAKERS */
+  .hit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:36px;}
+  .hit-card{border:1px solid #e4ded0;background:#fff;padding:22px;}
+  .hit-card img{width:88px;height:88px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);margin-bottom:14px;}
+  .hit-card h4{font-size:16px;margin-bottom:10px;letter-spacing:0.5px;}
+  .hit-card p{font-size:13.5px;color:var(--gray);margin-bottom:6px;}
+  .hit-card .tag{display:inline-block;background:var(--cream);border:1px solid var(--gold);color:var(--black);font-size:11px;padding:3px 8px;margin:2px 4px 2px 0;text-transform:uppercase;letter-spacing:0.5px;}
+
+  .placements{background:var(--black);color:var(--cream);text-align:center;}
+  .placements .sec-title{color:var(--cream);}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px;}
+  .chip{border:1px solid var(--gold);padding:10px 20px;font-size:14px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--gold-light);}
+
+  /* DAY BREAKDOWN */
+  .days{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px;}
+  .day-card{background:#fff;border:1px solid #e4ded0;padding:30px;}
+  .day-card .day-label{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;}
+  .day-card h3{font-size:20px;margin-bottom:18px;}
+  .day-item{margin-bottom:16px;}
+  .day-item h4{font-size:14.5px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+  .day-item p{font-size:14px;color:var(--gray);}
+
+  /* PROVEN RESULTS */
+  .results{background:#fff;}
+  .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;margin-top:40px;text-align:center;}
+  .result-grid strong{display:block;font-size:26px;font-family:'Arial Black',sans-serif;color:var(--gold);margin-bottom:6px;}
+  .result-grid span{font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;}
+
+  /* FORMS */
+  .forms{background:var(--black);color:var(--cream);}
+  .forms .sec-title{color:var(--cream);}
+  .form-tabs{display:flex;gap:12px;margin:36px 0 0;flex-wrap:wrap;}
+  .tab-btn{
+    background:#1e1b16;border:1px solid #3a352c;color:#cfc8b8;
+    padding:14px 26px;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:13px;
+    cursor:pointer;flex:1;min-width:220px;
+  }
+  .tab-btn.active{background:var(--gold);color:var(--black);border-color:var(--gold);}
+  .form-panel{display:none;background:var(--cream);padding:0;margin-top:0;}
+  .form-panel.active{display:block;}
+  .form-panel iframe{width:100%;border:none;display:block;}
+  .form-note{color:#a89f8c;font-size:13px;padding:16px 4px 0;}
+
+  footer{
+    background:#0f0d0b;color:#8f887a;text-align:center;padding:44px 24px;font-size:13px;
+  }
+  footer .brand{color:var(--gold-light);font-weight:700;letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;}
+
+  @media (max-width:800px){
+    .mission-grid,.power-grid,.days{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">What The Hook <span>Gonna Be?</span></div>
+    <ul>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#forms">Apply</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-dates">September 11–13</div>
+    <img src="assets/wthgb-logo.png" alt="What The Hook Gonna Be? Songwriters Session Tour" class="hero-logo">
+    <div class="btn-row">
+      <a href="#forms" class="btn btn-primary">Submit Your Work</a>
+      <a href="#forms" class="btn btn-outline">RSVP: Industry Mixer</a>
+    </div>
+  </div>
+</header>
+
+<section id="mission">
+  <div class="wrap">
+    <div class="eyebrow">The Mission</div>
+    <h2 class="sec-title">Direction over randomness</h2>
+    <div class="mission-grid">
+      <div>
+        <p class="lede">A 3-day songwriting camp designed to connect Chicago's most promising songwriters with real opportunities.</p>
+        <p class="lede">Unlike traditional songwriting camps, participation is free. Through a competitive submission process, only 30–40 songwriters are chosen to participate. Our goal is to give Chicago songwriters a shot at making career-changing records.</p>
+        <span class="free-badge">Submission Below · 30–40 Writers Selected</span>
+      </div>
+      <div class="list-card">
+        <h3>EACH SONGWRITER RECEIVES ACCESS TO A CURATED "WHO'S LOOKING" LIST FEATURING:</h3>
+        <ul>
+          <li>Major artists actively seeking records</li>
+          <li>Creative direction and song concepts</li>
+          <li>Reference records and inspirations</li>
+          <li>Genre-specific opportunities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="power">
+  <div class="wrap">
+    <div class="eyebrow">The Power Behind WTHGB</div>
+    <h2 class="sec-title">Backed by industry veterans</h2>
+    <div class="power-grid single">
+      <div class="power-card">
+        <h3>PAQ Publishing</h3>
+        <p>A boutique music publisher boasting a global RIAA Diamond-certified, Grammy-winning roster of hit-makers across various genres of music. With 100+ combined years of experience at our executive level, this company is perfectly positioned to set up young songwriters and producers for success.</p>
+        <div class="stat-row">
+          <div><strong>14</strong>Affiliate Publishing Cos.</div>
+          <div><strong>100+</strong>Years Combined Experience</div>
+          <div><strong>10B+</strong>Streams Generated</div>
+          <div><strong>Multiple</strong>Grammy Collaborations</div>
+        </div>
+      </div>
+    </div>
+    <p class="partner-line">In partnership with <strong>PVTSTCK</strong> (Private Stock) and <a href="https://atschicago.com" target="_blank" rel="noopener">ATS Chicago</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Access To Real Hitmakers</div>
+    <h2 class="sec-title">Learn from writers &amp; producers behind the records</h2>
+    <p class="lede">We'll be inviting 4 hit producers from PAQ Publishing's roster to assist and create music with and for our chosen writers.</p>
+    <div class="hit-grid">
+      <div class="hit-card">
+        <img src="assets/writer-benny.png" alt="Benny Wond3r">
+        <h4>Benny Wond3r</h4>
+        <p>Championship – Meek Mill · Grammy Nomination (Best Rap Album)</p>
+        <p>On Me – Meek Mill ft. Cardi B · RIAA Certified Gold</p>
+      </div>
+      <div class="hit-card">
+        <img src="assets/writer-hitman.png" alt="Hitman Audio">
+        <h4>Hitman Audio</h4>
+        <p>I Never Liked You – Future · Grammy Nomination (Best Rap Album)</p>
+        <p>Top – NBA YoungBoy · RIAA Certified Platinum</p>
+      </div>
+      <div class="hit-card">
+        <img src="assets/writer-twon.png" alt="Twon Beats">
+        <h4>Twon Beats</h4>
+        <p>King's Dead – Jay Rock · Grammy Award-Winning Producer</p>
+        <p>Black Panther: The Album – Various Artists · RIAA Certified Platinum</p>
+      </div>
+      <div class="hit-card">
+        <img src="assets/writer-gunboi.png" alt="Gunboi">
+        <h4>Gunboi</h4>
+        <p>So Much Fun – Young Thug · RIAA Certified Platinum</p>
+        <p>Racks 2 Skinny – Migos · RIAA Certified Gold</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="placements">
+  <div class="wrap">
+    <div class="eyebrow">Placements</div>
+    <h2 class="sec-title">Where our network's records have landed</h2>
+    <div class="chips">
+      <div class="chip">Gunna</div>
+      <div class="chip">Migos</div>
+      <div class="chip">Shordie Shordie</div>
+      <div class="chip">Rauw Alejandro</div>
+      <div class="chip">Blaqbonez</div>
+      <div class="chip">Drake</div>
+      <div class="chip">Travis Scott</div>
+      <div class="chip">Sexyy Red</div>
+      <div class="chip">Bad Bunny</div>
+      <div class="chip">Rema</div>
+      <div class="chip">Ayra Starr</div>
+      <div class="chip">Future</div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="eyebrow">Day Breakdown</div>
+    <h2 class="sec-title">Three days, September 11–13</h2>
+    <div class="days">
+      <div class="day-card">
+        <div class="day-label">Day 1 · Sept 11th</div>
+        <h3>Industry Mixer &amp; Briefing</h3>
+        <div class="day-item">
+          <h4>Industry Mixer</h4>
+          <p>Our chosen writers, and broader Chicago industry connections, are invited to attend Friday evening.</p>
+        </div>
+        <div class="day-item">
+          <h4>Creative Briefing</h4>
+          <p>Overview of the weekend — available studio equipment, breakout rooms, and objectives for writers.</p>
+        </div>
+        <div class="day-item">
+          <h4>Vendors</h4>
+          <p>Tables set up for vendors to advertise their products and provide awareness to attendees.</p>
+        </div>
+        <div class="day-item">
+          <h4>Brand Activations</h4>
+          <p>Brands show real-world uses of products or services — especially important for audio equipment used during the event or consumable products.</p>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-label">Day 2 &amp; 3 · Sept 12–13th</div>
+        <h3>Writing &amp; Recording</h3>
+        <div class="day-item">
+          <h4>Studio Partner: <a href="https://atschicago.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">ATS Chicago</a></h4>
+          <p>We're partnering with ATS Chicago, a premier recording studio, who will be hosting our recording sessions throughout the weekend.</p>
+        </div>
+        <div class="day-item">
+          <h4>Writing Rooms</h4>
+          <p>Breakout rooms for writers to work.</p>
+        </div>
+        <div class="day-item">
+          <h4>Who's Looking List</h4>
+          <p>Active industry lists of artists and brands looking for music, for easier placements.</p>
+        </div>
+        <div class="day-item">
+          <h4>Recording Sessions</h4>
+          <p>Songs close to completion get a chance to be recorded and shipped at ATS Chicago.</p>
+        </div>
+        <div class="day-item">
+          <h4>Product Integration &amp; Social Assets</h4>
+          <p>More opportunity for sponsor products to be displayed or demo'd, with picture and video content featuring their products in use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="wrap">
+    <div class="eyebrow">Proven Results</div>
+    <h2 class="sec-title">Backed by real numbers</h2>
+    <div class="result-grid">
+      <div><strong>100+</strong><span>RIAA Gold, Platinum, Multi-Platinum &amp; Diamond Records</span></div>
+      <div><strong>8,000+</strong><span>Works Published</span></div>
+      <div><strong>10B+</strong><span>Streams Generated</span></div>
+      <div><strong>Sync</strong><span>Global Reach &amp; Sync — Marvel, Netflix, Hulu, The Chi, FIFA Heroes +</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="forms" class="forms">
+  <div class="wrap">
+    <div class="eyebrow">Get Involved</div>
+    <h2 class="sec-title">Submit your work or RSVP to the mixer</h2>
+    <p class="lede" style="color:#cfc8b8;">Applications are competitive — only 30–40 songwriters are selected. Choose a form below to get started.</p>
+
+    <div class="form-tabs">
+      <button class="tab-btn active" onclick="showForm('writer')">Writer Submission</button>
+      <button class="tab-btn" onclick="showForm('mixer')">Industry Mixer RSVP</button>
+    </div>
+
+    <div id="writer" class="form-panel active">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSexyB0zDk8YhZKizMZbEM19djdxo4Sf8N26TZTpZEKLr3nu0g/viewform?embedded=true" height="1100" title="WTHGB Writer Submission Form">Loading…</iframe>
+      <p class="form-note">Having trouble viewing the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSexyB0zDk8YhZKizMZbEM19djdxo4Sf8N26TZTpZEKLr3nu0g/viewform" target="_blank" style="color:var(--gold-light);">Open it in a new tab</a>.</p>
+    </div>
+
+    <div id="mixer" class="form-panel">
+      <iframe id="JotFormIFrame-242907219257158" src="https://form.jotform.com/242907219257158" height="800" title="WTHGB Industry Mixer RSVP">Loading…</iframe>
+      <p class="form-note">Having trouble viewing the form? <a href="https://www.jotform.com/242907219257158" target="_blank" style="color:var(--gold-light);">Open it in a new tab</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">What The Hook Gonna Be? — Songwriters Session Tour</div>
+  <div>September 11–13 · Chicago, IL</div>
+  <div style="margin-top:10px;">Presented by PAQ Publishing &amp; PVTSTCK</div>
+</footer>
+
+<script>
+  function showForm(id){
+    document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+  // JotForm auto-resize handler
+  window.addEventListener('message', function(e){
+    if (typeof e.data === 'string' && e.data.indexOf('setHeight') > -1) {
+      var iframe = document.getElementById('JotFormIFrame-242907219257158');
+      if (iframe) {
+        var h = e.data.split(':')[1];
+        if (h) iframe.style.height = parseInt(h) + 30 + 'px';
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
