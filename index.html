@@ -130,15 +130,7 @@
   /* FORMS */
   .forms{background:var(--black);color:var(--cream);}
   .forms .sec-title{color:var(--cream);}
-  .form-tabs{display:flex;gap:12px;margin:36px 0 0;flex-wrap:wrap;}
-  .tab-btn{
-    background:#1e1b16;border:1px solid #3a352c;color:#cfc8b8;
-    padding:14px 26px;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:13px;
-    cursor:pointer;flex:1;min-width:220px;
-  }
-  .tab-btn.active{background:var(--gold);color:var(--black);border-color:var(--gold);}
-  .form-panel{display:none;background:var(--cream);padding:0;margin-top:0;}
-  .form-panel.active{display:block;}
+  .form-panel{background:var(--cream);padding:0;margin-top:36px;}
   .form-panel iframe{width:100%;border:none;display:block;}
   .form-note{color:#a89f8c;font-size:13px;padding:16px 4px 0;}
 
@@ -171,7 +163,6 @@
     <img src="assets/wthgb-logo.png" alt="What The Hook Gonna Be? Songwriters Session Tour" class="hero-logo">
     <div class="btn-row">
       <a href="#forms" class="btn btn-primary">Submit Your Work</a>
-      <a href="#forms" class="btn btn-outline">RSVP: Industry Mixer</a>
     </div>
   </div>
 </header>
@@ -291,12 +282,12 @@
           <p>Overview of the weekend — available studio equipment, breakout rooms, and objectives for writers.</p>
         </div>
         <div class="day-item">
-          <h4>Vendors</h4>
-          <p>Tables set up for vendors to advertise their products and provide awareness to attendees.</p>
+          <h4>Resource Fair</h4>
+          <p>Browse gear, tools, and services from event partners — free resources you can put to use in your own writing and production.</p>
         </div>
         <div class="day-item">
-          <h4>Brand Activations</h4>
-          <p>Brands show real-world uses of products or services — especially important for audio equipment used during the event or consumable products.</p>
+          <h4>Hands-On Gear</h4>
+          <p>Test out audio equipment on-site, much of it available for you to use during your own writing sessions throughout the weekend.</p>
         </div>
       </div>
       <div class="day-card">
@@ -319,8 +310,8 @@
           <p>Songs close to completion get a chance to be recorded and shipped at ATS Chicago.</p>
         </div>
         <div class="day-item">
-          <h4>Product Integration &amp; Social Assets</h4>
-          <p>More opportunity for sponsor products to be displayed or demo'd, with picture and video content featuring their products in use.</p>
+          <h4>Content For You</h4>
+          <p>Professional photo and video coverage of you at work all weekend — footage you can use for your own portfolio and socials.</p>
         </div>
       </div>
     </div>
@@ -343,22 +334,12 @@
 <section id="forms" class="forms">
   <div class="wrap">
     <div class="eyebrow">Get Involved</div>
-    <h2 class="sec-title">Submit your work or RSVP to the mixer</h2>
-    <p class="lede" style="color:#cfc8b8;">Applications are competitive — only 30–40 songwriters are selected. Choose a form below to get started.</p>
+    <h2 class="sec-title">Submit your work</h2>
+    <p class="lede" style="color:#cfc8b8;">Applications are competitive — only 30–40 songwriters are selected.</p>
 
-    <div class="form-tabs">
-      <button class="tab-btn active" onclick="showForm('writer')">Writer Submission</button>
-      <button class="tab-btn" onclick="showForm('mixer')">Industry Mixer RSVP</button>
-    </div>
-
-    <div id="writer" class="form-panel active">
+    <div class="form-panel active">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSexyB0zDk8YhZKizMZbEM19djdxo4Sf8N26TZTpZEKLr3nu0g/viewform?embedded=true" height="1100" title="WTHGB Writer Submission Form">Loading…</iframe>
       <p class="form-note">Having trouble viewing the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSexyB0zDk8YhZKizMZbEM19djdxo4Sf8N26TZTpZEKLr3nu0g/viewform" target="_blank" style="color:var(--gold-light);">Open it in a new tab</a>.</p>
-    </div>
-
-    <div id="mixer" class="form-panel">
-      <iframe id="JotFormIFrame-242907219257158" src="https://form.jotform.com/242907219257158" height="800" title="WTHGB Industry Mixer RSVP">Loading…</iframe>
-      <p class="form-note">Having trouble viewing the form? <a href="https://www.jotform.com/242907219257158" target="_blank" style="color:var(--gold-light);">Open it in a new tab</a>.</p>
     </div>
   </div>
 </section>
@@ -366,27 +347,9 @@
 <footer>
   <div class="brand">What The Hook Gonna Be? — Songwriters Session Tour</div>
   <div>September 11–13 · Chicago, IL</div>
-  <div style="margin-top:10px;">Presented by PAQ Publishing &amp; PVTSTCK</div>
+  <div style="margin-top:10px;">Presented by PAQ Publishing</div>
+  <div>In partnership with PVTSTCK &amp; ATS Chicago</div>
 </footer>
-
-<script>
-  function showForm(id){
-    document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.currentTarget.classList.add('active');
-  }
-  // JotForm auto-resize handler
-  window.addEventListener('message', function(e){
-    if (typeof e.data === 'string' && e.data.indexOf('setHeight') > -1) {
-      var iframe = document.getElementById('JotFormIFrame-242907219257158');
-      if (iframe) {
-        var h = e.data.split(':')[1];
-        if (h) iframe.style.height = parseInt(h) + 30 + 'px';
-      }
-    }
-  });
-</script>
 
 </body>
 </html>
